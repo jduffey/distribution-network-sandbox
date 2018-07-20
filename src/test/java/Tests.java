@@ -16,7 +16,7 @@ public class Tests {
     }
 
     @Test
-    public void dNetShouldHaveArrayToHoldHubs(){
+    public void dNetShouldHaveAWayToHoldHubs(){
         DistributionNetwork dmap = new DistributionNetwork();
         FoodHub hub1 = new FoodHub();
         FoodHub hub2 = new FoodHub();

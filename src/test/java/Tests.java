@@ -65,8 +65,15 @@ public class Tests {
     @Test
     public void foodHubShouldHaveAHierarchyLevel() {
         FoodHub hub = new FoodHub();
-        hub.setHierarchyLevel(HierarchyLevel.FOOD_SOURCE);
-        Assert.assertEquals(HierarchyLevel.FOOD_SOURCE, hub.getHierarchyLevel());
+        hub.setHierarchyLevel(HierarchyLevel.SOURCE);
+        Assert.assertEquals(HierarchyLevel.SOURCE, hub.getHierarchyLevel());
+    }
+
+    @Test
+    public void shouldHaveSeveralTypesOfHierarchyLevels() {
+        Assert.assertNotNull(HierarchyLevel.SOURCE);
+        Assert.assertNotNull(HierarchyLevel.BANK);
+        Assert.assertNotNull(HierarchyLevel.PANTRY);
     }
 
 }

@@ -1,4 +1,6 @@
 public enum HierarchyLevel {
 
-    FOOD_SOURCE;
+    SOURCE,
+    BANK,
+    PANTRY;
 }

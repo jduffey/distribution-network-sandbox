@@ -9,4 +9,10 @@ public class Tests {
         Assert.assertNotNull(nmap);
     }
 
+    @Test
+    public void foodHubShouldInstantiate(){
+        FoodHub hub = new FoodHub();
+        Assert.assertNotNull(hub);
+    }
+
 }

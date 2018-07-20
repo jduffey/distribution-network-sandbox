@@ -62,4 +62,11 @@ public class Tests {
         hub.removeFromInventory(FoodType.BANANA, 5);
     }
 
+    @Test
+    public void foodHubShouldHaveAHierarchyLevel() {
+        FoodHub hub = new FoodHub();
+        hub.setHierarchyLevel(HierarchyLevel.FOOD_SOURCE);
+        Assert.assertEquals(HierarchyLevel.FOOD_SOURCE, hub.getHierarchyLevel());
+    }
+
 }

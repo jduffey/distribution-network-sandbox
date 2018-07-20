@@ -2,8 +2,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FoodHub {
+    HierarchyLevel level;
 
     Map<FoodType, Integer> inventory = new HashMap<>();
+
+    public void setHierarchyLevel(HierarchyLevel level) {
+        this.level = level;
+    }
+
+    public HierarchyLevel getHierarchyLevel() {
+        return this.level;
+    }
 
     public void addToInventory(FoodType product, int qty) {
         inventory.put(product, qty);
@@ -19,6 +28,4 @@ public class FoodHub {
         } else
             inventory.put(product, inventory.get(product) - qty);
     }
-
-
 }

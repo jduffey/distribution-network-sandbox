@@ -4,19 +4,19 @@ import org.junit.Test;
 public class Tests {
 
     @Test
-    public void distributionNetworkShouldInstantiate(){
+    public void distributionNetworkShouldInstantiate() {
         DistributionNetwork nmap = new DistributionNetwork();
         Assert.assertNotNull(nmap);
     }
 
     @Test
-    public void foodHubShouldInstantiate(){
+    public void foodHubShouldInstantiate() {
         FoodHub hub = new FoodHub();
         Assert.assertNotNull(hub);
     }
 
     @Test
-    public void dNetShouldHaveAWayToHoldHubs(){
+    public void dNetShouldHaveAWayToHoldHubs() {
         DistributionNetwork dmap = new DistributionNetwork();
         FoodHub hub1 = new FoodHub();
         FoodHub hub2 = new FoodHub();
@@ -30,10 +30,21 @@ public class Tests {
     }
 
     @Test
-    public void foodTypesShouldExist(){
+    public void foodTypesShouldExist() {
         Assert.assertNotNull(FoodType.BANANA);
         Assert.assertNotNull(FoodType.SOUP_CAN);
         Assert.assertNotNull(FoodType.CEREAL_BOX);
+    }
+
+    @Test
+    public void foodHubShouldHaveAnInventoryOfGoods() {
+        FoodHub hub = new FoodHub();
+        hub.addToInventory(FoodType.BANANA, 4);
+        hub.addToInventory(FoodType.SOUP_CAN,3);
+        hub.addToInventory(FoodType.CEREAL_BOX,2);
+        Assert.assertEquals(4, hub.getQty(FoodType.BANANA));
+        Assert.assertEquals(3, hub.getQty(FoodType.SOUP_CAN));
+        Assert.assertEquals(2, hub.getQty(FoodType.CEREAL_BOX));
     }
 
 }

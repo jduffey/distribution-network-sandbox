@@ -12,4 +12,8 @@ public class FoodHub {
     public int getQty(FoodType product) {
         return inventory.get(product);
     }
+
+    public void removeFromInventory(FoodType product, int qty) {
+        inventory.put(product, inventory.get(product) - qty);
+    }
 }

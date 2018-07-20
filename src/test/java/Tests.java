@@ -40,11 +40,19 @@ public class Tests {
     public void foodHubShouldHaveAnInventoryOfGoods() {
         FoodHub hub = new FoodHub();
         hub.addToInventory(FoodType.BANANA, 4);
-        hub.addToInventory(FoodType.SOUP_CAN,3);
-        hub.addToInventory(FoodType.CEREAL_BOX,2);
+        hub.addToInventory(FoodType.SOUP_CAN, 3);
+        hub.addToInventory(FoodType.CEREAL_BOX, 2);
         Assert.assertEquals(4, hub.getQty(FoodType.BANANA));
         Assert.assertEquals(3, hub.getQty(FoodType.SOUP_CAN));
         Assert.assertEquals(2, hub.getQty(FoodType.CEREAL_BOX));
+    }
+
+    @Test
+    public void canRemoveItemFromInventory() {
+        FoodHub hub = new FoodHub();
+        hub.addToInventory(FoodType.BANANA, 4);
+        hub.removeFromInventory(FoodType.BANANA, 1);
+        Assert.assertEquals(3, hub.getQty(FoodType.BANANA));
     }
 
 }

@@ -29,4 +29,11 @@ public class Tests {
         Assert.assertTrue(dmap.allHubs.contains(hub3));
     }
 
+    @Test
+    public void foodTypesShouldExist(){
+        Assert.assertNotNull(FoodType.BANANA);
+        Assert.assertNotNull(FoodType.SOUP_CAN);
+        Assert.assertNotNull(FoodType.CEREAL_BOX);
+    }
+
 }

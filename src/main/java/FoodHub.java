@@ -14,6 +14,11 @@ public class FoodHub {
     }
 
     public void removeFromInventory(FoodType product, int qty) {
-        inventory.put(product, inventory.get(product) - qty);
+        if (qty > inventory.get(product)) {
+            throw new ArithmeticException("Cannot remove more than what's in inventory.");
+        } else
+            inventory.put(product, inventory.get(product) - qty);
     }
+
+
 }

@@ -55,4 +55,11 @@ public class Tests {
         Assert.assertEquals(3, hub.getQty(FoodType.BANANA));
     }
 
+    @Test(expected = ArithmeticException.class)
+    public void shouldThrowExceptionIfTryToRemoveMoreItemsThanExistInInventory() {
+        FoodHub hub = new FoodHub();
+        hub.addToInventory(FoodType.BANANA, 4);
+        hub.removeFromInventory(FoodType.BANANA, 5);
+    }
+
 }

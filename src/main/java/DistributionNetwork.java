@@ -8,4 +8,9 @@ public class DistributionNetwork {
     public void addHub(FoodHub hubToBeAdded) {
         allHubs.add(hubToBeAdded);
     }
+
+    public void transferInventory(FoodHub fromHub, FoodHub toHub, FoodType product, int qty) {
+        fromHub.removeFromInventory(product, qty);
+        toHub.addToInventory(product, qty);
+    }
 }

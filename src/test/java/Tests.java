@@ -76,4 +76,17 @@ public class Tests {
         Assert.assertNotNull(HierarchyLevel.PANTRY);
     }
 
+    @Test
+    public void canTransferItemsFromOneHubToAnother() {
+        DistributionNetwork dnet = new DistributionNetwork();
+        FoodHub hub1 = new FoodHub();
+        FoodHub hub2 = new FoodHub();
+        dnet.addHub(hub1);
+        dnet.addHub(hub2);
+        hub1.addToInventory(FoodType.BANANA, 10);
+        dnet.transferInventory(hub1, hub2, FoodType.BANANA, 3);
+        Assert.assertEquals(7, hub1.getQty(FoodType.BANANA));
+        Assert.assertEquals(3, hub2.getQty(FoodType.BANANA));
+    }
+
 }

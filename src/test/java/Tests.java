@@ -55,6 +55,23 @@ public class Tests {
         Assert.assertEquals(3, hub.getQty(FoodType.BANANA));
     }
 
+    @Test
+    public void canRemoveSameItemMultipleTimesFromSameInventory(){
+        FoodHub hub = new FoodHub();
+        hub.addToInventory(FoodType.BANANA, 4);
+        hub.removeFromInventory(FoodType.BANANA, 2);
+        hub.removeFromInventory(FoodType.BANANA, 1);
+        Assert.assertEquals(1, hub.getQty(FoodType.BANANA));
+    }
+
+    @Test
+    public void canAddSameItemMultipleTimesToSameInventory(){
+        FoodHub hub = new FoodHub();
+        hub.addToInventory(FoodType.BANANA, 4);
+        hub.addToInventory(FoodType.BANANA, 3);
+        Assert.assertEquals(7, hub.getQty(FoodType.BANANA));
+    }
+
     @Test(expected = ArithmeticException.class)
     public void shouldThrowExceptionIfTryToRemoveMoreItemsThanExistInInventory() {
         FoodHub hub = new FoodHub();
@@ -84,9 +101,12 @@ public class Tests {
         dnet.addHub(hub1);
         dnet.addHub(hub2);
         hub1.addToInventory(FoodType.BANANA, 10);
-        dnet.transferInventory(hub1, hub2, FoodType.BANANA, 3);
-        Assert.assertEquals(7, hub1.getQty(FoodType.BANANA));
-        Assert.assertEquals(3, hub2.getQty(FoodType.BANANA));
+        dnet.transferInventory(hub1, hub2, FoodType.BANANA, 6);
+        Assert.assertEquals(4, hub1.getQty(FoodType.BANANA));
+        Assert.assertEquals(6, hub2.getQty(FoodType.BANANA));
+        dnet.transferInventory(hub2, hub1, FoodType.BANANA, 4);
+        Assert.assertEquals(8, hub1.getQty(FoodType.BANANA));
+        Assert.assertEquals(2, hub2.getQty(FoodType.BANANA));
     }
 
 }

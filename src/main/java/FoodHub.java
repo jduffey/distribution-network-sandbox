@@ -14,12 +14,15 @@ public class FoodHub {
         return this.level;
     }
 
-    public void addToInventory(FoodType product, int qty) {
-        inventory.put(product, qty);
-    }
-
     public int getQty(FoodType product) {
         return inventory.get(product);
+    }
+
+    public void addToInventory(FoodType product, int qtyToAdd) {
+        if (inventory.get(product) == null) {
+            inventory.put(product, qtyToAdd);
+        } else
+            inventory.put(product, inventory.get(product) + qtyToAdd);
     }
 
     public void removeFromInventory(FoodType product, int qty) {

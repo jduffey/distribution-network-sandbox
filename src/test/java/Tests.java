@@ -5,8 +5,8 @@ public class Tests {
 
     @Test
     public void distributionNetworkShouldInstantiate() {
-        DistributionNetwork nmap = new DistributionNetwork();
-        Assert.assertNotNull(nmap);
+        DistributionNetwork dnet = new DistributionNetwork();
+        Assert.assertNotNull(dnet);
     }
 
     @Test
@@ -17,16 +17,16 @@ public class Tests {
 
     @Test
     public void dNetShouldHaveAWayToHoldHubs() {
-        DistributionNetwork dmap = new DistributionNetwork();
+        DistributionNetwork dnet = new DistributionNetwork();
         FoodHub hub1 = new FoodHub();
         FoodHub hub2 = new FoodHub();
         FoodHub hub3 = new FoodHub();
-        dmap.addHub(hub1);
-        dmap.addHub(hub2);
-        dmap.addHub(hub3);
-        Assert.assertTrue(dmap.allHubs.contains(hub1));
-        Assert.assertTrue(dmap.allHubs.contains(hub2));
-        Assert.assertTrue(dmap.allHubs.contains(hub3));
+        dnet.addHub(hub1);
+        dnet.addHub(hub2);
+        dnet.addHub(hub3);
+        Assert.assertTrue(dnet.allHubs.contains(hub1));
+        Assert.assertTrue(dnet.allHubs.contains(hub2));
+        Assert.assertTrue(dnet.allHubs.contains(hub3));
     }
 
     @Test
